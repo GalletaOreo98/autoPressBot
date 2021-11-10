@@ -2,6 +2,7 @@ package autopressbot;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -12,15 +13,17 @@ import java.util.logging.Logger;
  */
 public class AutoPressBot extends Thread {
 
-private long tiempoParaIniciar = 10;
-private long tiempoIteracion = 1;
-private long numeroIteraciones;
-private long tiempoDeFuncion = 3600;
-private long contadorInteraciones = 0;
-private JFrameBot jfBot;
+    private long tiempoParaIniciar = 10;
+    private long tiempoIteracion = 1;
+    private long numeroIteraciones;
+    private long tiempoDeFuncion = 3600;
+    private long contadorInteraciones = 0;
+    private JFrameBot jfBot;
+    private boolean isKey = true;
+    private int keyCode = 81;
 
     public AutoPressBot() {
-        
+
     }
 
     public void run() {
@@ -43,23 +46,57 @@ private JFrameBot jfBot;
         }
 
         jfBot.getJlblTrabajando().setText("Trabajando...");
-        
-        while (contadorInteraciones < numeroIteraciones) {
-            robot.keyPress(KeyEvent.VK_Q);
-            robot.keyRelease(KeyEvent.VK_Q);
-            contadorInteraciones++;
-            jfBot.getJlblIteraciones().setText("Iteraciones: " + contadorInteraciones);
-            jfBot.getJlblTiempoRestante().setText("Iteraciones restantes: " + (numeroIteraciones-contadorInteraciones));
-            jfBot.getjProgressBarBot().setValue(jfBot.getjProgressBarBot().getValue()+1);
-            try {
-                Thread.sleep(tiempoIteracion);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(AutoPressBot.class.getName()).log(Level.SEVERE, null, ex);
+
+        if (isKey) {
+            while (contadorInteraciones < numeroIteraciones) {
+                robot.keyPress(keyCode);
+                robot.keyRelease(keyCode);
+                contadorInteraciones++;
+                jfBot.getJlblIteraciones().setText("Iteraciones: " + contadorInteraciones);
+                jfBot.getJlblTiempoRestante().setText("Iteraciones restantes: " + (numeroIteraciones - contadorInteraciones));
+                jfBot.getjProgressBarBot().setValue(jfBot.getjProgressBarBot().getValue() + 1);
+                try {
+                    Thread.sleep(tiempoIteracion);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(AutoPressBot.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            while (contadorInteraciones < numeroIteraciones) {
+                robot.mousePress(keyCode);
+                robot.mouseRelease(keyCode);
+                contadorInteraciones++;
+                jfBot.getJlblIteraciones().setText("Iteraciones: " + contadorInteraciones);
+                jfBot.getJlblTiempoRestante().setText("Iteraciones restantes: " + (numeroIteraciones - contadorInteraciones));
+                jfBot.getjProgressBarBot().setValue(jfBot.getjProgressBarBot().getValue() + 1);
+                try {
+                    Thread.sleep(tiempoIteracion);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(AutoPressBot.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
+
         jfBot.getJlblTrabajando().setText("Finalizado :)");
         jfBot.getJlblImagenPicoDiamante().setIcon(new javax.swing.ImageIcon(getClass().getResource("/autopressbot/data/Diamante.png")));
     }
+
+    public int getKeyCode() {
+        return keyCode;
+    }
+
+    public void setKeyCode(int keyCode) {
+        this.keyCode = keyCode;
+    }
+
+    public boolean isIsKey() {
+        return isKey;
+    }
+
+    public void setIsKey(boolean isKey) {
+        this.isKey = isKey;
+    }
+    
 
     public long getTiempoParaIniciar() {
         return tiempoParaIniciar;
@@ -109,5 +146,4 @@ private JFrameBot jfBot;
         this.jfBot = jfBot;
     }
 
-    
 }

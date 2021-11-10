@@ -17,11 +17,13 @@ public class JFrameBot extends javax.swing.JFrame{
 
     private AutoPressBot bot;
 
-    public JFrameBot(long tIte, long tFunc, long tIni) {
+    public JFrameBot(long tIte, long tFunc, long tIni, boolean isKey, int keyCode) {
         bot = new AutoPressBot();
         bot.setTiempoIteracion(tIte);
         bot.setTiempoDeFuncion(tFunc);
         bot.setTiempoParaIniciar(tIni);
+        bot.setIsKey(isKey);
+        bot.setKeyCode(keyCode);
         bot.setJfBot(this);
         initComponents();
         Image iconoPropio = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/autopressbot/data/icono.png"));

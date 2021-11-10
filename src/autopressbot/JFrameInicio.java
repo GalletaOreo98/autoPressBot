@@ -14,9 +14,8 @@ import java.awt.Toolkit;
  */
 public class JFrameInicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form NewJFrame
-     */
+    private boolean isKey=true;
+    private int keyCode;
     public JFrameInicio() {
         initComponents();
         Image iconoPropio = Toolkit.getDefaultToolkit().getImage(getClass().getResource("/autopressbot/data/icono.png"));
@@ -34,6 +33,8 @@ public class JFrameInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jframeEleccionTecla = new javax.swing.JFrame();
+        jLabel1 = new javax.swing.JLabel();
         jlblTitulo = new javax.swing.JLabel();
         jlblTiempoIteracion = new javax.swing.JLabel();
         jtfTiempoIteracion = new javax.swing.JTextField();
@@ -43,8 +44,46 @@ public class JFrameInicio extends javax.swing.JFrame {
         jtfTiempoParaIniciar = new javax.swing.JTextField();
         jbtnIniciarBot = new javax.swing.JButton();
         jlblInfoParametros = new javax.swing.JLabel();
+        jbtnTecla = new javax.swing.JButton();
+        jlblElegirTeclaOMouse = new javax.swing.JLabel();
+
+        jframeEleccionTecla.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        jframeEleccionTecla.setPreferredSize(new java.awt.Dimension(300, 300));
+        jframeEleccionTecla.setResizable(false);
+        jframeEleccionTecla.setSize(new java.awt.Dimension(300, 300));
+        jframeEleccionTecla.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jframeEleccionTeclaMouseClicked(evt);
+            }
+        });
+        jframeEleccionTecla.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jframeEleccionTeclaKeyPressed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel1.setText("Presionar tecla o mouse");
+
+        javax.swing.GroupLayout jframeEleccionTeclaLayout = new javax.swing.GroupLayout(jframeEleccionTecla.getContentPane());
+        jframeEleccionTecla.getContentPane().setLayout(jframeEleccionTeclaLayout);
+        jframeEleccionTeclaLayout.setHorizontalGroup(
+            jframeEleccionTeclaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jframeEleccionTeclaLayout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jLabel1)
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        jframeEleccionTeclaLayout.setVerticalGroup(
+            jframeEleccionTeclaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jframeEleccionTeclaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(211, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jlblTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jlblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -80,6 +119,18 @@ public class JFrameInicio extends javax.swing.JFrame {
         jlblInfoParametros.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         jlblInfoParametros.setText("(Tiempo en Segundos)");
 
+        jbtnTecla.setBackground(new java.awt.Color(204, 204, 204));
+        jbtnTecla.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbtnTecla.setText("Elegir");
+        jbtnTecla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbtnTeclaActionPerformed(evt);
+            }
+        });
+
+        jlblElegirTeclaOMouse.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jlblElegirTeclaOMouse.setText("Elegir tecla o mouse:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -88,31 +139,32 @@ public class JFrameInicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlblTiempoDeFuncion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jtfTiempoDeFuncion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlblTiempoParaIniciar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtfTiempoParaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlblTiempoIteracion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jlblInfoParametros)
-                                    .addComponent(jtfTiempoIteracion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jtfTiempoIteracion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jlblTiempoParaIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jtfTiempoParaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jlblElegirTeclaOMouse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 71, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jlblTitulo)
-                                .addGap(89, 89, 89))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jbtnIniciarBot)
-                                .addContainerGap())))))
+                        .addComponent(jlblTitulo)
+                        .addGap(89, 89, 89))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jbtnTecla)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbtnIniciarBot)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,8 +185,12 @@ public class JFrameInicio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jlblTiempoParaIniciar)
                     .addComponent(jtfTiempoParaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
-                .addComponent(jbtnIniciarBot)
+                .addGap(18, 18, 18)
+                .addComponent(jlblElegirTeclaOMouse, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbtnTecla)
+                    .addComponent(jbtnIniciarBot))
                 .addContainerGap())
         );
 
@@ -145,17 +201,41 @@ public class JFrameInicio extends javax.swing.JFrame {
         long tIteracion = Long.parseLong(jtfTiempoIteracion.getText());
         long tFuncion = Long.parseLong(jtfTiempoDeFuncion.getText());
         long tIniciacion = Long.parseLong(jtfTiempoParaIniciar.getText());
-        JFrameBot jfBot = new JFrameBot(tIteracion, tFuncion, tIniciacion);
+        JFrameBot jfBot = new JFrameBot(tIteracion, tFuncion, tIniciacion, isKey, keyCode);
         Thread t = jfBot.getBot();
         t.start();
     }//GEN-LAST:event_jbtnIniciarBotActionPerformed
+
+    private void jframeEleccionTeclaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jframeEleccionTeclaKeyPressed
+        jlblElegirTeclaOMouse.setText("Tecla elegida: " + evt.getKeyChar() + " Code: " + evt.getKeyCode());
+        keyCode = evt.getKeyCode();
+        isKey=true;
+        jframeEleccionTecla.dispose();
+    }//GEN-LAST:event_jframeEleccionTeclaKeyPressed
+
+    private void jbtnTeclaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnTeclaActionPerformed
+        jframeEleccionTecla.setLocationRelativeTo(null);
+        jframeEleccionTecla.setVisible(true);
+        
+    }//GEN-LAST:event_jbtnTeclaActionPerformed
+
+    private void jframeEleccionTeclaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jframeEleccionTeclaMouseClicked
+        jlblElegirTeclaOMouse.setText("Accion del mouse elegida: " + evt.getModifiers());
+        keyCode = evt.getModifiers();
+        isKey=false;
+        jframeEleccionTecla.dispose();
+    }//GEN-LAST:event_jframeEleccionTeclaMouseClicked
 
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jbtnIniciarBot;
+    private javax.swing.JButton jbtnTecla;
+    private javax.swing.JFrame jframeEleccionTecla;
+    private javax.swing.JLabel jlblElegirTeclaOMouse;
     private javax.swing.JLabel jlblInfoParametros;
     private javax.swing.JLabel jlblTiempoDeFuncion;
     private javax.swing.JLabel jlblTiempoIteracion;
