@@ -70,11 +70,15 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jlblElegirTeclaOMouse" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jlblTiempoDeFuncion" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -89,11 +93,10 @@
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jlblTiempoParaIniciar" max="32767" attributes="0"/>
+                              <Component id="jlblTiempoParaIniciar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jtfTiempoParaIniciar" min="-2" pref="122" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jlblElegirTeclaOMouse" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -103,10 +106,17 @@
                       <EmptySpace min="-2" pref="89" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jbtnTecla" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jbtnTecla" min="-2" max="-2" attributes="0"/>
+                          <Component id="jcbApagarAlFinalizar" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jbtnIniciarBot" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jcbMovMouseEntreIteracion" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -135,11 +145,15 @@
                   <Component id="jtfTiempoParaIniciar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jlblElegirTeclaOMouse" pref="27" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jlblElegirTeclaOMouse" min="-2" pref="36" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbtnTecla" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jcbMovMouseEntreIteracion" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jbtnTecla" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jbtnIniciarBot" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbApagarAlFinalizar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -246,6 +260,16 @@
           <Font name="Arial" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Elegir tecla o mouse:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jcbMovMouseEntreIteracion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Mover mouse cada iteracion"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="jcbApagarAlFinalizar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Apagar al finalizar"/>
       </Properties>
     </Component>
   </SubComponents>

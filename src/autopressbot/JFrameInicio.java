@@ -46,9 +46,10 @@ public class JFrameInicio extends javax.swing.JFrame {
         jlblInfoParametros = new javax.swing.JLabel();
         jbtnTecla = new javax.swing.JButton();
         jlblElegirTeclaOMouse = new javax.swing.JLabel();
+        jcbMovMouseEntreIteracion = new javax.swing.JCheckBox();
+        jcbApagarAlFinalizar = new javax.swing.JCheckBox();
 
         jframeEleccionTecla.setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        jframeEleccionTecla.setPreferredSize(new java.awt.Dimension(300, 300));
         jframeEleccionTecla.setResizable(false);
         jframeEleccionTecla.setSize(new java.awt.Dimension(300, 300));
         jframeEleccionTecla.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,6 +132,10 @@ public class JFrameInicio extends javax.swing.JFrame {
         jlblElegirTeclaOMouse.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jlblElegirTeclaOMouse.setText("Elegir tecla o mouse:");
 
+        jcbMovMouseEntreIteracion.setText("Mover mouse cada iteracion");
+
+        jcbApagarAlFinalizar.setText("Apagar al finalizar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,7 +144,10 @@ public class JFrameInicio extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jlblElegirTeclaOMouse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jlblTiempoDeFuncion)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -151,20 +159,24 @@ public class JFrameInicio extends javax.swing.JFrame {
                                     .addComponent(jlblInfoParametros)
                                     .addComponent(jtfTiempoIteracion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jlblTiempoParaIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jlblTiempoParaIniciar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jtfTiempoParaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jlblElegirTeclaOMouse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jtfTiempoParaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 71, Short.MAX_VALUE)
                         .addComponent(jlblTitulo)
                         .addGap(89, 89, 89))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jbtnTecla)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbtnTecla)
+                            .addComponent(jcbApagarAlFinalizar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbtnIniciarBot)
-                        .addContainerGap())))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jcbMovMouseEntreIteracion)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,11 +198,15 @@ public class JFrameInicio extends javax.swing.JFrame {
                     .addComponent(jlblTiempoParaIniciar)
                     .addComponent(jtfTiempoParaIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jlblElegirTeclaOMouse, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlblElegirTeclaOMouse, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbtnTecla)
+                .addGap(18, 18, 18)
+                .addComponent(jcbMovMouseEntreIteracion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jbtnTecla)
-                    .addComponent(jbtnIniciarBot))
+                    .addComponent(jbtnIniciarBot)
+                    .addComponent(jcbApagarAlFinalizar))
                 .addContainerGap())
         );
 
@@ -201,7 +217,9 @@ public class JFrameInicio extends javax.swing.JFrame {
         long tIteracion = Long.parseLong(jtfTiempoIteracion.getText());
         long tFuncion = Long.parseLong(jtfTiempoDeFuncion.getText());
         long tIniciacion = Long.parseLong(jtfTiempoParaIniciar.getText());
-        JFrameBot jfBot = new JFrameBot(tIteracion, tFuncion, tIniciacion, isKey, keyCode);
+        boolean hasMov = jcbMovMouseEntreIteracion.isSelected();
+        boolean apagar = jcbApagarAlFinalizar.isSelected();
+        JFrameBot jfBot = new JFrameBot(tIteracion, tFuncion, tIniciacion, isKey, keyCode, hasMov, apagar);
         Thread t = jfBot.getBot();
         t.start();
     }//GEN-LAST:event_jbtnIniciarBotActionPerformed
@@ -234,6 +252,8 @@ public class JFrameInicio extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton jbtnIniciarBot;
     private javax.swing.JButton jbtnTecla;
+    private javax.swing.JCheckBox jcbApagarAlFinalizar;
+    private javax.swing.JCheckBox jcbMovMouseEntreIteracion;
     private javax.swing.JFrame jframeEleccionTecla;
     private javax.swing.JLabel jlblElegirTeclaOMouse;
     private javax.swing.JLabel jlblInfoParametros;
